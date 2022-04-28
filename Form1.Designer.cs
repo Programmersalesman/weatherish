@@ -52,6 +52,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.find_btn = new System.Windows.Forms.Button();
             this.clear_btn = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.time_group.SuspendLayout();
             this.units_group.SuspendLayout();
             this.SuspendLayout();
@@ -290,13 +291,25 @@
             this.clear_btn.TabIndex = 17;
             this.clear_btn.Text = "Clear";
             this.clear_btn.UseVisualStyleBackColor = true;
+            this.clear_btn.Click += new System.EventHandler(this.clear_btn_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(12, 248);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(436, 188);
+            this.textBox2.TabIndex = 18;
+            this.textBox2.Text = "Output...";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
-            this.ClientSize = new System.Drawing.Size(460, 245);
+            this.ClientSize = new System.Drawing.Size(460, 448);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.clear_btn);
             this.Controls.Add(this.find_btn);
             this.Controls.Add(this.label6);
@@ -352,6 +365,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button find_btn;
         private System.Windows.Forms.Button clear_btn;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
