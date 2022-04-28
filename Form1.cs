@@ -37,7 +37,7 @@ namespace weatherish
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void find_btn_Click(object sender, EventArgs e)
         {
 
         }
