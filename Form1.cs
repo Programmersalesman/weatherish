@@ -23,7 +23,7 @@ namespace weatherish
 
         }
 
-        // Search location button  
+        // Search location button DYNAMIC LOCATION TODO
         private void button1_Click(object sender, EventArgs e)
         {
             //System.Console.WriteLine(apiKey);
@@ -69,7 +69,7 @@ namespace weatherish
                 maskedTextBox1.Text = "0";
                 maskedTextBox2.Text = "0";
             }
-            String url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + maskedTextBox1.Text + "&lon=" + maskedTextBox2.Text + "&appid=b69bb7fc2737c4c9e90c27ca9d826e02&units=" + unit_flag;
+            String url = "https://api.openweathermap.org/data/2.5/onecall?lat=" + maskedTextBox1.Text + "&lon=" + maskedTextBox2.Text + "&appid=" + apiKey + "&units=" + unit_flag;
             init(url);
         }
 
