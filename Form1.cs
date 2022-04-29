@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
+using GoogleMaps.LocationServices;
 
 namespace weatherish
 {
@@ -27,10 +28,21 @@ namespace weatherish
 
         }
 
+        // Search location button
         private void button1_Click(object sender, EventArgs e)
         {
-            //search button
-
+            var gls = new GoogleLocationService();
+            try
+            {
+                var latlong = gls.GetLatLongFromAddress(address);
+                var Latitude = latlong.Latitude;
+                var Longitude = latlong.Longitude;
+                System.Console.WriteLine("Address ({0}) is at {1},{2}", address, Latitude, Longitude);
+            }
+            catch (System.Net.WebException ex)
+            {
+                System.Console.WriteLine("Google Maps API Error {0}", ex.Message);
+            }
         }
 
         private void find_btn_Click(object sender, EventArgs e)
