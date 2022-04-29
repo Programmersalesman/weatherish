@@ -101,75 +101,75 @@ namespace weatherish
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
                     var result = streamReader.ReadToEnd();
-                    Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(result);
-                    //maskedTextBox3.Text = myDeserializedClass.timezone.ToString();
-                    //maskedTextBox2.Text = myDeserializedClass.lon.ToString();
-                    //maskedTextBox1.Text = myDeserializedClass.lat.ToString();
-                    maskedTextBox3.Text = myDeserializedClass.timezone.ToString();
+                    Root weatherDeserializedData = JsonConvert.DeserializeObject<Root>(result);
+                    //maskedTextBox3.Text = weatherDeserializedData.timezone.ToString();
+                    //maskedTextBox2.Text = weatherDeserializedData.lon.ToString();
+                    //maskedTextBox1.Text = weatherDeserializedData.lat.ToString();
+                    maskedTextBox3.Text = weatherDeserializedData.timezone.ToString();
                     if (radioButton1.Checked) // current
                     {
-                        textBox2.AppendText("Current time: " + myDeserializedClass.current.dt.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Sunrise: " + myDeserializedClass.current.sunrise.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Sunset: " + myDeserializedClass.current.sunset.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Temperature: " + myDeserializedClass.current.temp.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Feels Like: " + myDeserializedClass.current.feels_like.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Pressure: " + myDeserializedClass.current.pressure.ToString() + " hPa" + Environment.NewLine);
-                        textBox2.AppendText("Humidity: " + myDeserializedClass.current.humidity.ToString() + "%" + Environment.NewLine);
-                        textBox2.AppendText("Dew Point: " + myDeserializedClass.current.dew_point.ToString() + Environment.NewLine);
-                        textBox2.AppendText("UV Index: " + myDeserializedClass.current.uvi.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Clouds: " + myDeserializedClass.current.clouds.ToString() + "%" + Environment.NewLine);
-                        textBox2.AppendText("Visibility: " + myDeserializedClass.current.visibility.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Wind Speed: " + myDeserializedClass.current.wind_speed.ToString() + "mph" + Environment.NewLine);
-                        textBox2.AppendText("Wind Degree: " + myDeserializedClass.current.wind_deg.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Wind Gust: " + myDeserializedClass.current.wind_gust.ToString() + "mph" + Environment.NewLine);
+                        textBox2.AppendText("Current time: " + weatherDeserializedData.current.dt.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Sunrise: " + weatherDeserializedData.current.sunrise.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Sunset: " + weatherDeserializedData.current.sunset.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Temperature: " + weatherDeserializedData.current.temp.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Feels Like: " + weatherDeserializedData.current.feels_like.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Pressure: " + weatherDeserializedData.current.pressure.ToString() + " hPa" + Environment.NewLine);
+                        textBox2.AppendText("Humidity: " + weatherDeserializedData.current.humidity.ToString() + "%" + Environment.NewLine);
+                        textBox2.AppendText("Dew Point: " + weatherDeserializedData.current.dew_point.ToString() + Environment.NewLine);
+                        textBox2.AppendText("UV Index: " + weatherDeserializedData.current.uvi.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Clouds: " + weatherDeserializedData.current.clouds.ToString() + "%" + Environment.NewLine);
+                        textBox2.AppendText("Visibility: " + weatherDeserializedData.current.visibility.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Wind Speed: " + weatherDeserializedData.current.wind_speed.ToString() + "mph" + Environment.NewLine);
+                        textBox2.AppendText("Wind Degree: " + weatherDeserializedData.current.wind_deg.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Wind Gust: " + weatherDeserializedData.current.wind_gust.ToString() + "mph" + Environment.NewLine);
                     }
                     else if (radioButton2.Checked)
                     {
-                        textBox2.AppendText("Current time: " + myDeserializedClass.minutely[0].dt.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Precipitation: " + myDeserializedClass.minutely[0].precipitation.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Current time: " + weatherDeserializedData.minutely[0].dt.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Precipitation: " + weatherDeserializedData.minutely[0].precipitation.ToString() + Environment.NewLine);
                     }
                     else if (radioButton3.Checked)
                     {
-                        textBox2.AppendText("Current time: " + myDeserializedClass.hourly[0].dt.ToString() + Environment.NewLine);
-                        //textBox2.AppendText("Sunrise: " + myDeserializedClass.hourly[0].sunrise.ToString() + Environment.NewLine);
-                        //textBox2.AppendText("Sunset: " + myDeserializedClass.hourly[0].sunset.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Temperature: " + myDeserializedClass.hourly[0].temp.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Feels Like: " + myDeserializedClass.hourly[0].feels_like.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Pressure: " + myDeserializedClass.hourly[0].pressure.ToString() + " hPa" + Environment.NewLine);
-                        textBox2.AppendText("Humidity: " + myDeserializedClass.hourly[0].humidity.ToString() + "%" + Environment.NewLine);
-                        textBox2.AppendText("Dew Point: " + myDeserializedClass.hourly[0].dew_point.ToString() + Environment.NewLine);
-                        textBox2.AppendText("UV Index: " + myDeserializedClass.hourly[0].uvi.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Clouds: " + myDeserializedClass.hourly[0].clouds.ToString() + "%" + Environment.NewLine);
-                        textBox2.AppendText("Visibility: " + myDeserializedClass.hourly[0].visibility.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Wind Speed: " + myDeserializedClass.hourly[0].wind_speed.ToString() + "mph" + Environment.NewLine);
-                        textBox2.AppendText("Wind Degree: " + myDeserializedClass.hourly[0].wind_deg.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Wind Gust: " + myDeserializedClass.hourly[0].wind_gust.ToString() + "mph" + Environment.NewLine);
+                        textBox2.AppendText("Current time: " + weatherDeserializedData.hourly[0].dt.ToString() + Environment.NewLine);
+                        //textBox2.AppendText("Sunrise: " + weatherDeserializedData.hourly[0].sunrise.ToString() + Environment.NewLine);
+                        //textBox2.AppendText("Sunset: " + weatherDeserializedData.hourly[0].sunset.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Temperature: " + weatherDeserializedData.hourly[0].temp.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Feels Like: " + weatherDeserializedData.hourly[0].feels_like.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Pressure: " + weatherDeserializedData.hourly[0].pressure.ToString() + " hPa" + Environment.NewLine);
+                        textBox2.AppendText("Humidity: " + weatherDeserializedData.hourly[0].humidity.ToString() + "%" + Environment.NewLine);
+                        textBox2.AppendText("Dew Point: " + weatherDeserializedData.hourly[0].dew_point.ToString() + Environment.NewLine);
+                        textBox2.AppendText("UV Index: " + weatherDeserializedData.hourly[0].uvi.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Clouds: " + weatherDeserializedData.hourly[0].clouds.ToString() + "%" + Environment.NewLine);
+                        textBox2.AppendText("Visibility: " + weatherDeserializedData.hourly[0].visibility.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Wind Speed: " + weatherDeserializedData.hourly[0].wind_speed.ToString() + "mph" + Environment.NewLine);
+                        textBox2.AppendText("Wind Degree: " + weatherDeserializedData.hourly[0].wind_deg.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Wind Gust: " + weatherDeserializedData.hourly[0].wind_gust.ToString() + "mph" + Environment.NewLine);
                     }
                     else if (radioButton4.Checked)
                     {
-                        textBox2.AppendText("Current time: " + myDeserializedClass.daily[0].dt.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Sunrise: " + myDeserializedClass.daily[0].sunrise.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Sunset: " + myDeserializedClass.daily[0].sunset.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Moonrise: " + myDeserializedClass.daily[0].moonrise.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Moonset: " + myDeserializedClass.daily[0].moonset.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Moon Phase: " + myDeserializedClass.daily[0].moon_phase.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Temperature: " + myDeserializedClass.daily[0].temp.day.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Feels Like: " + myDeserializedClass.daily[0].feels_like.day.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Pressure: " + myDeserializedClass.daily[0].pressure.ToString() + " hPa" + Environment.NewLine);
-                        textBox2.AppendText("Humidity: " + myDeserializedClass.daily[0].humidity.ToString() + "%" + Environment.NewLine);
-                        textBox2.AppendText("Precip %: " + myDeserializedClass.daily[0].pop.ToString() + "%" + Environment.NewLine);
-                        textBox2.AppendText("Dew Point: " + myDeserializedClass.daily[0].dew_point.ToString() + Environment.NewLine);
-                        textBox2.AppendText("UV Index: " + myDeserializedClass.daily[0].uvi.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Clouds: " + myDeserializedClass.daily[0].clouds.ToString() + "%" + Environment.NewLine);
-                        //textBox2.AppendText("Visibility: " + myDeserializedClass.daily[0].visibility.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Wind Speed: " + myDeserializedClass.daily[0].wind_speed.ToString() + "mph" + Environment.NewLine);
-                        textBox2.AppendText("Wind Degree: " + myDeserializedClass.daily[0].wind_deg.ToString() + Environment.NewLine);
-                        textBox2.AppendText("Wind Gust: " + myDeserializedClass.daily[0].wind_gust.ToString() + "mph" + Environment.NewLine);
+                        textBox2.AppendText("Current time: " + weatherDeserializedData.daily[0].dt.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Sunrise: " + weatherDeserializedData.daily[0].sunrise.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Sunset: " + weatherDeserializedData.daily[0].sunset.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Moonrise: " + weatherDeserializedData.daily[0].moonrise.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Moonset: " + weatherDeserializedData.daily[0].moonset.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Moon Phase: " + weatherDeserializedData.daily[0].moon_phase.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Temperature: " + weatherDeserializedData.daily[0].temp.day.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Feels Like: " + weatherDeserializedData.daily[0].feels_like.day.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Pressure: " + weatherDeserializedData.daily[0].pressure.ToString() + " hPa" + Environment.NewLine);
+                        textBox2.AppendText("Humidity: " + weatherDeserializedData.daily[0].humidity.ToString() + "%" + Environment.NewLine);
+                        textBox2.AppendText("Precip %: " + weatherDeserializedData.daily[0].pop.ToString() + "%" + Environment.NewLine);
+                        textBox2.AppendText("Dew Point: " + weatherDeserializedData.daily[0].dew_point.ToString() + Environment.NewLine);
+                        textBox2.AppendText("UV Index: " + weatherDeserializedData.daily[0].uvi.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Clouds: " + weatherDeserializedData.daily[0].clouds.ToString() + "%" + Environment.NewLine);
+                        //textBox2.AppendText("Visibility: " + weatherDeserializedData.daily[0].visibility.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Wind Speed: " + weatherDeserializedData.daily[0].wind_speed.ToString() + "mph" + Environment.NewLine);
+                        textBox2.AppendText("Wind Degree: " + weatherDeserializedData.daily[0].wind_deg.ToString() + Environment.NewLine);
+                        textBox2.AppendText("Wind Gust: " + weatherDeserializedData.daily[0].wind_gust.ToString() + "mph" + Environment.NewLine);
                     }
                     else if (radioButton5.Checked)
                     {
                         //textBox2.AppendText("ALERT!" + Environment.NewLine);
-                        //textBox2.AppendText("Alert Sender Name: " + myDeserializedClass.);
+                        //textBox2.AppendText("Alert Sender Name: " + weatherDeserializedData.);
                     }
                     else
                     {
